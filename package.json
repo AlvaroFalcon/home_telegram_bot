@@ -1,0 +1,24 @@
+{
+  "name": "notion_automation_ingredients",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node dist/bot.js",
+    "import": "node src/shopping-list/build-shopping-list.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@notionhq/client": "^2.2.15",
+    "dotenv": "^16.4.7",
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.1",
+    "typescript": "^5.7.3"
+  }
+}
