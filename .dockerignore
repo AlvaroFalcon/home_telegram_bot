@@ -7,3 +7,4 @@ docker-compose.yml
 .npmrc
 npm-debug.log
 .yarn
+nohup.out
