@@ -1,8 +1,5 @@
 import { Client } from "@notionhq/client";
-import {
-  PageObjectResponse,
-  RichTextItemResponse,
-} from "@notionhq/client/build/src/api-endpoints.js";
+import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints.js";
 
 import { config } from "dotenv";
 import { Context } from "telegraf";
@@ -20,7 +17,7 @@ export async function buildShoppingList(ctx: Context): Promise<void> {
 
     if (recipesToAdd.length === 0) {
       await ctx.reply(
-        `${ctx.from.first_name} No hay recetas marcadas para agregar a la lista de la compra.`,
+        `${ctx.from.first_name} No hay recetas marcadas para agregar a la lista de la compra.`
       );
       return;
     }
@@ -28,7 +25,7 @@ export async function buildShoppingList(ctx: Context): Promise<void> {
     const allIngredients = [];
     for (const recipe of recipesToAdd) {
       const recipeName = getTitle(
-        (recipe as PageObjectResponse).properties.Receta,
+        (recipe as PageObjectResponse).properties.Receta
       );
       const allIngredientsText = await getIngredientsList(recipe);
       allIngredients.push(...allIngredientsText);
@@ -39,13 +36,13 @@ export async function buildShoppingList(ctx: Context): Promise<void> {
     const shoppingListPage = await createShoppingListPage();
     const link = `https://www.notion.so/${shoppingListPage.id.replace(
       /-/g,
-      "",
+      ""
     )}`;
     await appendIngredientChecklist(shoppingListPage.id, allIngredients);
     await ctx.reply(`Se ha creado con exito la lista de la compra! ${link}`);
   } catch (error) {
     await ctx.reply(
-      "Ha ocurrido un error al crear la lista de la compra. Por favor, intentelo de nuevo.",
+      "Ha ocurrido un error al crear la lista de la compra. Por favor, intentelo de nuevo."
     );
     console.error("Error building shopping list:", error);
   }

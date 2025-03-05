@@ -15,6 +15,7 @@
   "dependencies": {
     "@notionhq/client": "^2.2.15",
     "dotenv": "^16.4.7",
+    "puppeteer": "^24.3.0",
     "telegraf": "^4.16.3"
   },
   "devDependencies": {
