@@ -33,7 +33,7 @@ bot.command("gym", async (ctx) => {
   if (!isValid) {
     return;
   }
-  ctx.reply("Consiltando el estado del gimnasio...");
+  ctx.reply("Consultando el estado del gimnasio...");
   const gymStatus = await loginAndScrape();
   ctx.reply(
     `El gimnasio ${gymStatus.centerName} ahora mismo está \n ${gymStatus.capacity}`
