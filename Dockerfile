@@ -1,15 +1,9 @@
 FROM node:18-alpine
 
-# Install dependencies for running Chromium
-RUN apk add --no-cache \
-	chromium \
-	nss \
-	freetype \
-	harfbuzz \
-	ca-certificates \
-	ttf-freefont
+# Install only essential packages for Chromium
+RUN apk add --no-cache chromium nss ca-certificates
 
-# Configure Puppeteer to skip downloading Chromium and use the installed binary
+# Tell Puppeteer to skip downloading its own Chromium and use the system version
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 	PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser \
 	CHROME_BIN=/usr/bin/chromium-browser
