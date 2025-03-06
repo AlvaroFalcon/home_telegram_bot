@@ -34,15 +34,10 @@ bot.command("gym", async (ctx) => {
     return;
   }
   ctx.reply("Consultando el estado del gimnasio...");
-  try {
-    const gymStatus = await loginAndScrape();
-    ctx.reply(
-      `El gimnasio ${gymStatus.centerName} ahora mismo está \n ${gymStatus.capacity}`
-    );
-  } catch (e) {
-    ctx.reply("No se pudo consultar el estado del gimnasio");
-    ctx.reply(e.message);
-  }
+  const gymStatus = await loginAndScrape();
+  ctx.reply(
+    `El gimnasio ${gymStatus.centerName} ahora mismo está \n ${gymStatus.capacity}`
+  );
 });
 
 bot.action(/markPurchased:(.+)/, async (ctx) => {
