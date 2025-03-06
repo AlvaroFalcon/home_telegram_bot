@@ -20,7 +20,7 @@ export async function loginAndScrape(): Promise<Response> {
 
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  await page.goto(GYM_URL, {
+  await page.goto("https://myaltafit.provis.es/Login", {
     waitUntil: "networkidle2",
   });
 
